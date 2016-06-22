@@ -1,4 +1,4 @@
-package main
+package strings
 
 import (
 	"flag"
@@ -20,24 +20,114 @@ func main() {
 	// urlify(&url)
 	// fmt.Println(url)
 	// fmt.Println(urlifyWithNoPackage("Mr John Smith"))
-	// fmt.Println(isPalindromePermutation("caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco"))
 	// start := time.Now()
 	// fmt.Println(oneAway("awayawayawayawayawayawayawayawayawayawayawayaway", "awayawayawayawayawayawayawayawayawayawayawayaway"))
 	// end := time.Now()
 	// fmt.Println("forst", end.Sub(start).Nanoseconds())
-	// bench := &testing.BenchmarkResult{}
-	fmt.Println("\n\n\n\n ")
+	// fmt.Println(stringCompressionOptimize1("aaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweee"))
+	// fmt.Println(stringCompressionOptimize("aaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweee"))
+	// fmt.Println(isPalindromePermutation("caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco"))
+	// fmt.Println("\n\n\n\n ")
+	// matrix := [][]int{
+	// 	[]int{1, 2, 3, 5, 5, 2, 3, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{4, 5, 6, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{1, 2, 3, 5, 5, 2, 3, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{4, 5, 6, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{1, 2, 3, 5, 5, 2, 3, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{4, 5, 6, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+	// }
+	// matrix := [][]int{
+	// 	[]int{1, 2, 3},
+	// 	[]int{4, 5, 6},
+	// 	[]int{7, 8, 9},
+	// }
+	// matrix = [][]int{
+	// 	[]int{1, 2, 3, 4},
+	// 	[]int{5, 6, 7, 8},
+	// 	[]int{9, 10, 11, 12},
+	// 	[]int{13, 14, 15, 16},
+	// }
+	// rotateMatrix(matrix))
 	result := testing.Benchmark(func(*testing.B) {
-		fmt.Println(stringCompressionOptimize1("aaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweee"))
 	})
 
 	fmt.Printf("iterations %+v\ntime %+v\nBytes %+v\nMemAlocs %+v\nMemBytes %+v\n", result.N, result.T, result.Bytes, result.MemAllocs, result.MemBytes)
+	//
+	// result = testing.Benchmark(func(*testing.B) {
+	// })
+	//
+	// fmt.Printf("iterations %+v\ntime %+v\nBytes %+v\nMemAlocs %+v\nMemBytes %+v\n", result.N, result.T, result.Bytes, result.MemAllocs, result.MemBytes)
+}
 
-	result = testing.Benchmark(func(*testing.B) {
-		fmt.Println(stringCompressionOptimize("aaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweee"))
-	})
+func zeroMatrix(matrix [][]int) {
+	type coord struct {
+		i int
+		j int
+	}
+	parent := len(matrix)
+	child := len(matrix[0])
+	var zeros []coord
+	for i := 0; i < parent; i++ {
+		for j := 0; j < child; j++ {
+			if matrix[i][j] == 0 {
+				zeros = append(zeros, coord{i: i, j: j})
+			}
+		}
+	}
+}
 
-	fmt.Printf("iterations %+v\ntime %+v\nBytes %+v\nMemAlocs %+v\nMemBytes %+v\n", result.N, result.T, result.Bytes, result.MemAllocs, result.MemBytes)
+func rotateMatrix(matrix [][]int) [][]int {
+	n := len(matrix)
+	for layer := 0; layer < n/2; layer++ {
+		first := layer
+		last := n - 1 - layer
+		for i := first; i < last; i++ {
+
+			offset := i - first
+			top := matrix[first][i] // save top
+
+			//left -> top
+			matrix[first][i] = matrix[last-offset][first]
+			//bottom -> left
+			matrix[last-offset][first] = matrix[last][last-offset]
+			//right -> bottom
+			matrix[last][last-offset] = matrix[i][last]
+			//top -> right
+			matrix[i][last] = top
+
+		}
+	}
+
+	return matrix
+}
+
+func rotateMatrix1(matrix [][]int) [][]int {
+	l := len(matrix) - 1
+	result := make([][]int, l+1)
+	for i := 0; i <= l; i++ {
+		for j := 0; j <= l; j++ {
+			// fmt.Printf("swapping %d with %d\n", matrix[len(matrix)-1-j][i], matrix[i][j])
+			result[i] = append(result[i], matrix[l-j][i])
+		}
+	}
+
+	return result
 }
 
 func stringCompression(s string) string {
@@ -157,31 +247,6 @@ func oneAway(s1, s2 string) bool {
 
 	return true
 }
-
-// func isPalindromeBitwise(s string) bool {
-// 	for i, v := range s {
-// 		if s[i] <= 90 && s[i] >= 65 {
-// 			v = v + 32
-// 		}
-// 		if v != 32 {
-//
-// 		}
-// 	}
-// 	//slower implementation
-// 	// count := 0
-// 	// for _, v := range pal {
-// 	// 	if v%2 != 0 {
-// 	// 		count++
-// 	// 	}
-// 	// 	if count > 1 {
-// 	// 		return false
-// 	// 	}
-// 	// }
-// 	if len(pal) > 1 {
-// 		return false
-// 	}
-// 	return true
-// }
 
 func isPalindromePermutation(s string) bool {
 	pal := make(map[rune]int)
