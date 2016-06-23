@@ -1,14 +1,11 @@
 package strings
 
 import (
-	"flag"
 	"fmt"
 	"math"
 	"strings"
 	"testing"
 )
-
-var cpuprofile = flag.String("cpuprofile", "eb.prof", "write cpu profile to file")
 
 func main() {
 
