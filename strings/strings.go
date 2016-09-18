@@ -4,73 +4,72 @@ import (
 	"fmt"
 	"math"
 	"strings"
-	"testing"
 )
 
-func main() {
+// func main() {
 
-	//
-	// fmt.Println(isUnique("tesg"))
-	// fmt.Println(isUniqueBit("test"))
-	// fmt.Println(isPerm("tedst", "tesdt"))
-	// url := "Mr John Smith      "
-	// urlify(&url)
-	// fmt.Println(url)
-	// fmt.Println(urlifyWithNoPackage("Mr John Smith"))
-	// start := time.Now()
-	// fmt.Println(oneAway("awayawayawayawayawayawayawayawayawayawayawayaway", "awayawayawayawayawayawayawayawayawayawayawayaway"))
-	// end := time.Now()
-	// fmt.Println("forst", end.Sub(start).Nanoseconds())
-	// fmt.Println(stringCompressionOptimize1("aaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweee"))
-	// fmt.Println(stringCompressionOptimize("aaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweee"))
-	// fmt.Println(isPalindromePermutation("caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco"))
-	// fmt.Println("\n\n\n\n ")
-	// matrix := [][]int{
-	// 	[]int{1, 2, 3, 5, 5, 2, 3, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{4, 5, 6, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{1, 2, 3, 5, 5, 2, 3, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{4, 5, 6, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{1, 2, 3, 5, 5, 2, 3, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{4, 5, 6, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
-	// }
-	// matrix := [][]int{
-	// 	[]int{1, 2, 3},
-	// 	[]int{4, 5, 6},
-	// 	[]int{7, 8, 9},
-	// }
-	// matrix = [][]int{
-	// 	[]int{1, 2, 3, 4},
-	// 	[]int{5, 6, 7, 8},
-	// 	[]int{9, 10, 11, 12},
-	// 	[]int{13, 14, 15, 16},
-	// }
-	// rotateMatrix(matrix))
-	result := testing.Benchmark(func(*testing.B) {
-	})
+//
+// fmt.Println(isUnique("tesg"))
+// fmt.Println(isUniqueBit("test"))
+// fmt.Println(isPerm("tedst", "tesdt"))
+// url := "Mr John Smith      "
+// urlify(&url)
+// fmt.Println(url)
+// fmt.Println(urlifyWithNoPackage("Mr John Smith"))
+// start := time.Now()
+// fmt.Println(oneAway("awayawayawayawayawayawayawayawayawayawayawayaway", "awayawayawayawayawayawayawayawayawayawayawayaway"))
+// end := time.Now()
+// fmt.Println("forst", end.Sub(start).Nanoseconds())
+// fmt.Println(stringCompressionOptimize1("aaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweee"))
+// fmt.Println(stringCompressionOptimize("aaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweeeaaaaaaaabbweee"))
+// fmt.Println(isPalindromePermutation("caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco caAco"))
+// fmt.Println("\n\n\n\n ")
+// matrix := [][]int{
+// 	[]int{1, 2, 3, 5, 5, 2, 3, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{4, 5, 6, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{1, 2, 3, 5, 5, 2, 3, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{4, 5, 6, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{1, 2, 3, 5, 5, 2, 3, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{4, 5, 6, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// 	[]int{7, 8, 9, 3, 4, 5, 6, 1, 3, 2, 3, 2, 3, 2, 3, 2, 3, 4, 3, 2, 1, 3},
+// }
+// matrix := [][]int{
+// 	[]int{1, 2, 3},
+// 	[]int{4, 5, 6},
+// 	[]int{7, 8, 9},
+// }
+// matrix = [][]int{
+// 	[]int{1, 2, 3, 4},
+// 	[]int{5, 6, 7, 8},
+// 	[]int{9, 10, 11, 12},
+// 	[]int{13, 14, 15, 16},
+// }
+// rotateMatrix(matrix))
+// result := testing.Benchmark(func(*testing.B) {
+// })
 
-	fmt.Printf("iterations %+v\ntime %+v\nBytes %+v\nMemAlocs %+v\nMemBytes %+v\n", result.N, result.T, result.Bytes, result.MemAllocs, result.MemBytes)
-	//
-	// result = testing.Benchmark(func(*testing.B) {
-	// })
-	//
-	// fmt.Printf("iterations %+v\ntime %+v\nBytes %+v\nMemAlocs %+v\nMemBytes %+v\n", result.N, result.T, result.Bytes, result.MemAllocs, result.MemBytes)
-}
+// fmt.Printf("iterations %+v\ntime %+v\nBytes %+v\nMemAlocs %+v\nMemBytes %+v\n", result.N, result.T, result.Bytes, result.MemAllocs, result.MemBytes)
+//
+// result = testing.Benchmark(func(*testing.B) {
+// })
+//
+// fmt.Printf("iterations %+v\ntime %+v\nBytes %+v\nMemAlocs %+v\nMemBytes %+v\n", result.N, result.T, result.Bytes, result.MemAllocs, result.MemBytes)
+// }
 
 func zeroMatrix(matrix [][]int) {
 	type coord struct {
@@ -301,9 +300,6 @@ func isPerm(a, b string) bool {
 	}
 
 	for _, v := range b {
-		if _, ok := set[v]; !ok {
-			return false
-		}
 		set[v]--
 		if set[v] < 0 {
 			return false
